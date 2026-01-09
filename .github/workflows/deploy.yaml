@@ -1,0 +1,4 @@
+env:
+  AWS_REGION: us-east-1
+  ECR_REPO_NAME: devops-app-repo  # <--- Make sure this matches your output
+  EKS_CLUSTER_NAME: devops-cluster
