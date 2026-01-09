@@ -6,7 +6,7 @@ on:
 env:
   AWS_REGION: us-east-1
   ECR_REPO_NAME: my-app-repo
-  EKS_CLUSTER_NAME: my-cluster
+  EKS_CLUSTER_NAME: devops-cluster
 
 jobs:
   deploy:
