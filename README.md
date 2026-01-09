@@ -4,11 +4,11 @@
 
 \## 🚀 Live Demo
 
-\*\*Application URL:\*\* \[http://http://a81872eeb187148b69ecb53c290a5e7d-1863067515.us-east-1.elb.amazonaws.com/](http://http://a81872eeb187148b69ecb53c290a5e7d-1863067515.us-east-1.elb.amazonaws.com/)
+Application URL: \[http://http://a81872eeb187148b69ecb53c290a5e7d-1863067515.us-east-1.elb.amazonaws.com/](http://http://a81872eeb187148b69ecb53c290a5e7d-1863067515.us-east-1.elb.amazonaws.com/)
 
 
 
-\*(Note: If the link is down, the AWS resources may have been destroyed to prevent cost incurrence.)\*
+(Note: If the link is down, the AWS resources may have been destroyed to prevent cost incurrence.)
 
 
 
@@ -22,23 +22,23 @@ This project fulfills the DevOps Engineer Take-Home Task requirements by automat
 
 
 
-The solution follows the \*\*Infrastructure as Code (IaC)\*\* principle and implements a fully automated \*\*CI/CD pipeline\*\* that triggers on every commit to the `main` branch.
+The solution follows the Infrastructure as Code (IaC) principle and implements a fully automated CI/CD pipeline that triggers on every commit to the `main` branch.
 
 
 
 \### 🏗 Architecture
 
-\* \*\*Cloud Provider:\*\* AWS (US East 1 Region)
+&nbsp;Cloud Provider: AWS (US East 1 Region)
 
-\* \*\*Orchestration:\*\* Amazon EKS (Kubernetes v1.29)
+&nbsp;Orchestration: Amazon EKS (Kubernetes v1.29)
 
-\* \*\*Infrastructure as Code:\*\* Terraform
+&nbsp;Infrastructure as Code: Terraform
 
-\* \*\*Containerization:\*\* Docker
+&nbsp;Containerization: Docker
 
-\* \*\*CI/CD:\*\* GitHub Actions
+&nbsp;CI/CD: GitHub Actions
 
-\* \*\*Networking:\*\* AWS VPC \& Classic Load Balancer
+&nbsp;Networking: AWS VPC \& Classic Load Balancer
 
 
 
@@ -50,13 +50,13 @@ The solution follows the \*\*Infrastructure as Code (IaC)\*\* principle and impl
 
 To run this project locally, you need:
 
-\* \*\*AWS CLI\*\* (v2.x) - Configured with Administrator credentials.
+&nbsp;AWS CLI (v2.x) - Configured with Administrator credentials.
 
-\* \*\*Terraform\*\* (v1.x) - Installed and in your system PATH.
+&nbsp;Terraform (v1.x) - Installed and in your system PATH.
 
-\* \*\*kubectl\*\* (v1.29) - Configured to interact with the cluster.
+&nbsp;kubectl (v1.29) - Configured to interact with the cluster.
 
-\* \*\*Git\*\* - For version control.
+&nbsp;Git - For version control.
 
 
 
