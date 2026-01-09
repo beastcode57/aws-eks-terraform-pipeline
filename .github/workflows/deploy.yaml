@@ -31,10 +31,8 @@ jobs:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         IMAGE_TAG: ${{ github.sha }}
       run: |
-        echo "Listing all files in the repository:"
-        ls -R
-        # CRITICAL FIX: Changed "./app" to "."
-        docker build -t $ECR_REGISTRY/$ECR_REPO_NAME:$IMAGE_TAG .
+        # CORRECTED: Pointing to ./app because your Dockerfile is inside the app folder
+        docker build -t $ECR_REGISTRY/$ECR_REPO_NAME:$IMAGE_TAG ./app
         docker push $ECR_REGISTRY/$ECR_REPO_NAME:$IMAGE_TAG
         echo "IMAGE_URI=$ECR_REGISTRY/$ECR_REPO_NAME:$IMAGE_TAG" >> $GITHUB_ENV
 
