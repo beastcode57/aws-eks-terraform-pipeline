@@ -24,14 +24,15 @@ jobs:
 
     - name: Login to ECR
       id: login-ecr
-      uses: aws-actions/amazon-ecr-login@v2 # CRITICAL FIX: Updated from v1 to v2
+      uses: aws-actions/amazon-ecr-login@v2 # Updated from v1 to v2
 
     - name: Build and Push Image
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         IMAGE_TAG: ${{ github.sha }}
       run: |
-        docker build -t $ECR_REGISTRY/$ECR_REPO_NAME:$IMAGE_TAG ./app
+        # CRITICAL FIX: Changed "./app" to "." so it finds the Dockerfile in the root
+        docker build -t $ECR_REGISTRY/$ECR_REPO_NAME:$IMAGE_TAG .
         docker push $ECR_REGISTRY/$ECR_REPO_NAME:$IMAGE_TAG
         echo "IMAGE_URI=$ECR_REGISTRY/$ECR_REPO_NAME:$IMAGE_TAG" >> $GITHUB_ENV
 
