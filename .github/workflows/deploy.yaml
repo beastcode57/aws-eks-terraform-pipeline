@@ -1,4 +1,43 @@
+name: Deploy to EKS
+on:
+  push:
+    branches: [ "main" ]
+
 env:
   AWS_REGION: us-east-1
-  ECR_REPO_NAME: devops-app-repo  # <--- Make sure this matches your output
-  EKS_CLUSTER_NAME: devops-cluster
+  ECR_REPO_NAME: my-app-repo
+  EKS_CLUSTER_NAME: my-cluster
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Configure AWS
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{ env.AWS_REGION }}
+
+    - name: Login to ECR
+      id: login-ecr
+      uses: aws-actions/amazon-ecr-login@v1
+
+    - name: Build and Push Image
+      env:
+        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+        IMAGE_TAG: ${{ github.sha }}
+      run: |
+        docker build -t $ECR_REGISTRY/$ECR_REPO_NAME:$IMAGE_TAG ./app
+        docker push $ECR_REGISTRY/$ECR_REPO_NAME:$IMAGE_TAG
+        echo "IMAGE_URI=$ECR_REGISTRY/$ECR_REPO_NAME:$IMAGE_TAG" >> $GITHUB_ENV
+
+    - name: Deploy to K8s
+      run: |
+        aws eks update-kubeconfig --name ${{ env.EKS_CLUSTER_NAME }} --region ${{ env.AWS_REGION }}
+        # Replace placeholder with real image URI in the deployment file
+        sed -i "s|IMAGE_PLACEHOLDER|${{ env.IMAGE_URI }}|g" k8s/deployment.yaml
+        kubectl apply -f k8s/
