@@ -31,6 +31,9 @@ jobs:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         IMAGE_TAG: ${{ github.sha }}
       run: |
+     echo "Listing all files in the repository:"
+        ls -R  # <--- THIS IS THE DEBUG COMMAND
+
         # CRITICAL FIX: Changed "./app" to "." so it finds the Dockerfile in the root
         docker build -t $ECR_REGISTRY/$ECR_REPO_NAME:$IMAGE_TAG .
         docker push $ECR_REGISTRY/$ECR_REPO_NAME:$IMAGE_TAG
