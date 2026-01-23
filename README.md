@@ -1,8 +1,8 @@
-\# DevOps Take-Home Task: Automated Kubernetes Deployment
+ DevOps Take-Home Task: Automated Kubernetes Deployment
 
 
 
-\## 🚀 Live Demo
+ 🚀 Live Demo
 
 Application URL: \[http://http://a81872eeb187148b69ecb53c290a5e7d-1863067515.us-east-1.elb.amazonaws.com/](http://http://a81872eeb187148b69ecb53c290a5e7d-1863067515.us-east-1.elb.amazonaws.com/)
 
@@ -16,7 +16,7 @@ Application URL: \[http://http://a81872eeb187148b69ecb53c290a5e7d-1863067515.us-
 
 
 
-\## 📖 Project Overview
+ 📖 Project Overview
 
 This project fulfills the DevOps Engineer Take-Home Task requirements by automating the deployment of a Node.js web application to an AWS EKS (Elastic Kubernetes Service) cluster.
 
@@ -26,19 +26,19 @@ The solution follows the Infrastructure as Code (IaC) principle and implements a
 
 
 
-\### 🏗 Architecture
+ 🏗 Architecture
 
-&nbsp;Cloud Provider: AWS (US East 1 Region)
+Cloud Provider: AWS (US East 1 Region)
 
-&nbsp;Orchestration: Amazon EKS (Kubernetes v1.29)
+Orchestration: Amazon EKS (Kubernetes v1.29)
 
-&nbsp;Infrastructure as Code: Terraform
+Infrastructure as Code: Terraform
 
-&nbsp;Containerization: Docker
+Containerization: Docker
 
-&nbsp;CI/CD: GitHub Actions
+CI/CD: GitHub Actions
 
-&nbsp;Networking: AWS VPC \& Classic Load Balancer
+Networking: AWS VPC \& Classic Load Balancer
 
 
 
@@ -46,17 +46,17 @@ The solution follows the Infrastructure as Code (IaC) principle and implements a
 
 
 
-\## ⚙️ Prerequisites
+ ⚙️ Prerequisites
 
 To run this project locally, you need:
 
-&nbsp;AWS CLI (v2.x) - Configured with Administrator credentials.
+AWS CLI (v2.x) - Configured with Administrator credentials.
 
-&nbsp;Terraform (v1.x) - Installed and in your system PATH.
+Terraform (v1.x) - Installed and in your system PATH.
 
-&nbsp;kubectl (v1.29) - Configured to interact with the cluster.
+kubectl (v1.29) - Configured to interact with the cluster.
 
-&nbsp;Git - For version control.
+Git - For version control.
 
 
 
@@ -64,11 +64,11 @@ To run this project locally, you need:
 
 
 
-\## 🛠 How to Deploy
+ 🛠 How to Deploy
 
 
 
-\### 1. Infrastructure Provisioning (Terraform)
+ 1. Infrastructure Provisioning (Terraform)
 
 The `terraform/` directory contains the IaC code to provision the VPC, EKS Cluster, and ECR Repository.
 
@@ -80,15 +80,15 @@ cd terraform
 
 
 
-\# Initialize Terraform (download providers)
+ Initialize Terraform (download providers)
 
 terraform init
 
 
 
-\# Apply the configuration (creates AWS resources)
+ Apply the configuration (creates AWS resources)
 
-\# Note: This takes approx. 15-20 minutes
+ Note: This takes approx. 15-20 minutes
 
 terraform apply --auto-approve
 
@@ -184,7 +184,7 @@ devops-task/
 
 └── .github/
 
-&nbsp;   └── workflows/
+   └── workflows/
 
-&nbsp;       └── deploy.yml      # CI/CD Pipeline definition
+       └── deploy.yml      # CI/CD Pipeline definition
 
